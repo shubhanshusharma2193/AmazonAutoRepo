@@ -27,6 +27,7 @@ public class Action {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\shubhanshu.sharma\\Desktop\\chromedriver_win32(3)_latest\\chromedriver.exe" );
 		
 		WebDriver dobj=new ChromeDriver();
+		 
 		
 		dobj.get("https://www.amazon.in/");
 		dobj.manage().window().maximize();
@@ -51,32 +52,12 @@ public class Action {
 		System.out.println(alist);
 		Thread.sleep(3000);
 		dobj.switchTo().window(  alist.get(1));//switching to the child tab
-		dobj.findElement(By.id("add-to-cart-button")).click(); //adding to the cart
-		System.out.println(dobj.getTitle());//getting the title
+		dobj.findElement(By.id("add-to-cart-button")).click();  //adding to the cart
+		System.out.println(dobj.getTitle()); //getting the title
 		
-		/*String parentwin=dobj.getWindowHandle();
-		System.out.println(parentwin);
-		
-	Set<String> multihandle=	dobj.getWindowHandles();
-	System.out.println(multihandle);
-	int wincount=multihandle.size();
-	System.out.println(wincount);//2*/
 	
-		
-		/*for(String childwin:multihandle) {
-			System.out.println(childwin);
-			if(childwin!=parentwin) {
-				Thread.sleep(3000);
-				dobj.switchTo().window(childwin);
-			    Thread.sleep(4000);
-			    dobj.findElement(By.xpath("//*[@id='add.to.cart.button']")).click();
-			
-			}
-		}*/
 	
-		//dobj.findElement(By.xpath("//span[@class='nav-logo-locale']")).click();
-//dobj.findElement(By.xpath("//*[contains(text(),'Add to Shopping Cart')]")).click();
-		//dobj.switchTo().window(parentwin);
+	
 		
 		
 	File scrshtfile=((TakesScreenshot)dobj).getScreenshotAs(OutputType.FILE);
